@@ -2,7 +2,7 @@ let snake=undefined;
 let food=undefined;
 let numberOfRows=60;
 let numberOfCols=120;
-
+let score=0;
 let animator=undefined;
 
 const animateSnake=function() {
@@ -13,10 +13,17 @@ const animateSnake=function() {
   unpaintSnake(oldTail);
   paintHead(head);
   if(head.isSameCoordAs(food)) {
+    updateScore();
     snake.grow();
     createFood(numberOfRows,numberOfCols);
     drawFood(food);
   }
+}
+
+const updateScore=function () {
+  let currentScore=+document.getElementById('scoreBoard').innerText;
+  currentScore+=10;
+  document.getElementById('scoreBoard').innerText=currentScore.toString();
 }
 
 const changeSnakeDirection=function(event) {
