@@ -4,15 +4,8 @@ const Score=function (incrementValue) {
 }
 Score.prototype.updateScore = function () {
   this.score+=this.incrementValue;
-  this.updateIncrementValue();
 };
 
 Score.prototype.getCurrentScore = function () {
   return this.score;
-};
-
-Score.prototype.updateIncrementValue = function () {
-  if(this.score>=100){
-    this.incrementValue=100;
-  }
 };
